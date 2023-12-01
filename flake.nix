@@ -1,8 +1,6 @@
 {
   description = "AOC";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
   outputs = { self, nixpkgs }: 
   let 
     pkgs = import nixpkgs { system = "x86_64-linux"; };
@@ -12,6 +10,11 @@
       buildInputs = with pkgs; [
         haskellPackages.ghc
         ruby_3_0
+
+        rustc
+        rustfmt
+        cargo # I prolly don't need this
+        rust-analyzer
       ];
     };
   };
